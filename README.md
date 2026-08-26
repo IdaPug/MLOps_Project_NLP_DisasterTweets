@@ -1,7 +1,10 @@
 ````markdown
 # project
 
-Project on using NLP to classify if a tweet is about a real disaster or not
+Project on using NLP to classify if a tweet is about a real disaster or not.
+
+## Data
+The project will use the [Natural Language Processing with Disaster Tweets](https://www.kaggle.com/competitions/nlp-getting-started) from Kaggle.
 
 ## Project structure
 
