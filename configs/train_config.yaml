@@ -1,0 +1,15 @@
+hydra:
+  job:
+    chdir: false
+
+Hyperparameters:
+  Epoch: 1
+  Batch_Size: 16
+  learning_rate: 1e-05
+  seed: 8
+
+Data:
+  train:
+    filepath: "data/processed_data/train.csv"
+  valid:
+    filepath: "data/processed_data/valid.csv"

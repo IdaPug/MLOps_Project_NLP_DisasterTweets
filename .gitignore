@@ -184,3 +184,6 @@ models/
 
 # lightning logs
 lightning_logs/
+
+# logging
+outputs/

@@ -4,6 +4,8 @@ from transformers import  DistilBertModel
 
 # Define the model
 class DisasterTweetBertModel(pl.LightningModule):
+    """A simple BERT-based model for binary classification of disaster tweets."""
+
     def __init__(self, lr = 1e-5):
         super().__init__()
         self.save_hyperparameters()

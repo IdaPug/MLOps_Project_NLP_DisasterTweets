@@ -7,7 +7,14 @@ from torch.utils.data import Dataset
 
 
 class DisasterTweetData(Dataset):
+    """A PyTorch Dataset class for loading disaster tweet data."""
+
     def __init__(self, data_path: Path, tokenizer=None,maxlen=128):
+        """Args:
+            data_path (Path): Path to the CSV file containing the data.
+            tokenizer: Tokenizer to convert text to token IDs. If None, no tokenization is applied.
+            maxlen (int): Maximum length of the tokenized sequences. Sequences longer than this will be truncated.
+        """
         self.data_path = data_path
         self.tokenizer = tokenizer
         self.maxlen = maxlen
@@ -18,6 +25,11 @@ class DisasterTweetData(Dataset):
         return len(self.data)
 
     def __getitem__(self, idx):
+        """Returns a single data point from the dataset."""
+        """Args:
+            idx (int): Index of the data point to retrieve.
+        """
+
         text = str(self.data.loc[idx, "text"])
         label = self.data.loc[idx, "target"]
 
@@ -43,6 +55,12 @@ class DisasterTweetData(Dataset):
 
 
 def preprocess(data_path: Path, output_path: Path, train_frac: float = 0.8):
+    """Preprocess the data by splitting it into training and validation sets.
+    Args:
+        data_path (Path): Path to the CSV file containing the raw data.
+        output_path (Path): Directory where the processed data will be saved.
+        train_frac (float): Fraction of the data to be used for training. The rest will be used for validation.
+    """
     # load the data
     data = pd.read_csv(data_path)
 

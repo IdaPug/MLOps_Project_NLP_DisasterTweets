@@ -1,0 +1,11 @@
+hydra:
+  job:
+    chdir: false
+
+Hyperparameters:
+  Batch_Size: 16
+  Max_Eval: 100
+
+Paths:
+  model_path: "models/disaster_tweet_model.ckpt"
+  data_path: "data/processed_data/valid.csv"
