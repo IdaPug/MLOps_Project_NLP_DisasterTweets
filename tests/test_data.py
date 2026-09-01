@@ -1,4 +1,3 @@
-from torch.utils.data import Dataset
 from project.data import DisasterTweetData
 import pandas as pd
 import torch
@@ -16,7 +15,6 @@ def get_tokenizer():
 
 def make_dummy_csv():
     # Create a dummy CSV file for testing
-    import pandas as pd
     data = {
         'id': [0, 1],
         'keyword': ['disaster', 'not_disaster'],

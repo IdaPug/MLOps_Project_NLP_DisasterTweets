@@ -1,8 +1,6 @@
 from pathlib import Path
 import pandas as pd
 import torch
-
-import typer
 from torch.utils.data import Dataset
 
 
