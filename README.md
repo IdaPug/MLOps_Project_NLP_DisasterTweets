@@ -57,3 +57,12 @@ a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for gett
 started with Machine Learning Operations (MLOps).
 
 ````
+
+CODE COVARAGE
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+src/project/__init__.py       0      0   100%
+src/project/data.py          29      7    76%   66-76, 81
+src/project/model.py         37     12    68%   49-65, 68-69
+-------------------------------------------------------
+TOTAL                        66     19    71%

@@ -181,6 +181,7 @@ CheckList.txt
 
 # large files
 models/
+wandb/
 
 # lightning logs
 lightning_logs/

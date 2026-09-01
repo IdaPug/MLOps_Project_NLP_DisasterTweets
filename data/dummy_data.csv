@@ -1,0 +1,3 @@
+id,keyword,location,text,target
+0,disaster,location1,This is a disaster tweet,1
+1,not_disaster,location2,This is not a disaster tweet,0

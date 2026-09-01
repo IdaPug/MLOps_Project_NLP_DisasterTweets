@@ -20,7 +20,6 @@ class DisasterTweetData(Dataset):
         self.maxlen = maxlen
         self.data = pd.read_csv(data_path)
 
-
     def __len__(self):
         return len(self.data)
 
@@ -34,6 +33,8 @@ class DisasterTweetData(Dataset):
         label = self.data.loc[idx, "target"]
 
         if self.tokenizer:
+
+
             encoding = self.tokenizer.encode_plus(
                 text,
                 add_special_tokens=True,

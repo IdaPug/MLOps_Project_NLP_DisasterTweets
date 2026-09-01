@@ -41,7 +41,7 @@ class DisasterTweetBertModel(pl.LightningModule):
         loss = self.loss_fn(logits, labels)
 
         # log
-        self.log('train_loss', loss)
+        self.log('train_loss', loss, on_step=False, on_epoch=True, logger=True)
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -59,8 +59,8 @@ class DisasterTweetBertModel(pl.LightningModule):
         acc = (preds == labels).float().mean()
 
         # log
-        self.log('val_loss', loss)
-        self.log('val_acc', acc)
+        self.log('val_loss', loss, on_step=False, on_epoch=True, logger=True)
+        self.log('val_acc', acc, on_step=False, on_epoch=True, logger=True)
 
         return loss
 
