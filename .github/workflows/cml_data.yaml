@@ -8,6 +8,10 @@ on:
       - '**/*.dvc'
       - '.dvc/**'
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   run_data_checker:
     runs-on: ubuntu-latest
@@ -40,6 +44,15 @@ jobs:
         run: |
           dvc pull --no-run-cache
 
-      - name: Check data statistics
+      - name: Setup CML
+        uses: iterative/setup-cml@v2
+
+      - name: Check data statistics & generate report
         run: |
           python data_stats.py
+
+      - name: Comment on PR
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cml comment create reports/report.md --watermark-title="Data Statistics"
