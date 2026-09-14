@@ -1,13 +1,38 @@
 ````markdown
 # project
 
-Project on using NLP to classify if a tweet is about a real disaster or not.
+Project using NLP to classify if a tweet is about a real disaster or not. The is a part of the
+[MLOps course at DTU](https://skaftenicki.github.io/dtu_mlops/latest/) and the focus will therefore be to learn and use MLOps methods.
 
 ## Data
 The project will use the [Natural Language Processing with Disaster Tweets](https://www.kaggle.com/competitions/nlp-getting-started) from Kaggle.
 
-## Project structure
+## Model and training
+The model consist of [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) from the transformers library and a simple linear classifier.
+The training is implemented using PyTorch wrapped in PyTorch Lightning to handle checkpoint, logging, device manement etc.
 
+
+
+## Frameworks & Tools
+| Tool                      | Purpose                                                      |
+| :------------------------ | :----------------------------------------------------------- |
+| **UV**                    | Project and package manager                                  |
+| **PyTorch**               | Deep learning framework for model architecture and training  |
+| **PyTorch Lightning**     | Boilerplate for PyTorch                                      |
+| **DVC**                   | Data versioning linked to GCP Cloud Storage                  |
+| **Docker**                | Containerization                                             |
+| **GitHub Actions**        | CI/CD for unit testing, linting, and automated cloud deployments  |
+| **GCP Artifact Registry** | Docker image hosting                                         |
+| **GCP Vertex AI**         | Cloud training infrastructure                        |
+| **GCP Cloud Run**         | Serverless deployment for API and frontend                   |
+| **FastAPI**               | Backend API for triggering cloud training jobs               |
+| **Gradio**                | Frontend UI for image upload and inference                   |
+| **Weights & Biases**      | Experiment tracking, metrics logging, and artifact storage   |
+| **Hydra**                 | Configs management for reproducibility   |
+
+
+
+## Project structure
 The directory structure of the project looks like this:
 ```txt
 ├── .github/                  # Github actions and dependabot
@@ -57,12 +82,4 @@ a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for gett
 started with Machine Learning Operations (MLOps).
 
 ````
-
-CODE COVARAGE
-Name                      Stmts   Miss  Cover   Missing
--------------------------------------------------------
-src/project/__init__.py       0      0   100%
-src/project/data.py          29      7    76%   66-76, 81
-src/project/model.py         37     12    68%   49-65, 68-69
--------------------------------------------------------
-TOTAL                        66     19    71%
+                      66     19    71%

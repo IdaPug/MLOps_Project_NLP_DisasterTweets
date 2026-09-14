@@ -1,0 +1,52 @@
+# Git
+.git
+.gitignore
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Test / coverage files
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local reports and generated files
+reports/
+
+# Local logs
+*.log
+
+# Docker
+.docker/
+
+# WandB local files
+wandb/
+
+# Node
+node_modules/
+
+# Temporary files
+*.tmp
+*.swp

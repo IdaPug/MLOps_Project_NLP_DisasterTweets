@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build training image'
+    args:
+      - 'build'
+      - '.'
+      - '-t'
+      - 'europe-north2-docker.pkg.dev/mlopsdtu-506007/disaster-tweet-class/training:latest'
+      - '-f'
+      - 'dockerfiles/train.dockerfile'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Push training image'
+    args:
+      - 'push'
+      - 'europe-north2-docker.pkg.dev/mlopsdtu-506007/disaster-tweet-class/training:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
