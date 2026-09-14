@@ -1,4 +1,3 @@
-````markdown
 # project
 
 Project using NLP to classify if a tweet is about a real disaster or not. The is a part of the
@@ -80,6 +79,3 @@ The directory structure of the project looks like this:
 Created using [mlops_template](https://github.com/SkafteNicki/mlops_template),
 a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for getting
 started with Machine Learning Operations (MLOps).
-
-````
-                      66     19    71%
