@@ -3,12 +3,12 @@ outs:
   path: processed_data
   files:
   - relpath: train.csv
-    md5: 5df815b516bd568fc7d3fb637e773f3e
-    size: 789917
+    md5: 2bf11a1dafed261b62fbb0be373917fa
+    size: 789946
     cloud:
       remote_storage:
-        etag: 08ea9790fbced096031001
-        version_id: '1788376858758122'
+        etag: 08d1f486bae2ee96031001
+        version_id: '1789412883151441'
   - relpath: valid.csv
     md5: 0a3fb5c64eabae5adacd443c1210dad3
     size: 197827
