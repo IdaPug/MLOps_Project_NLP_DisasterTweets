@@ -11,9 +11,7 @@ import hydra
     config_path="../../configs",
     config_name="evaluate_config",
 )
-
 def evaluate(config):
-
     hparams = config.Hyperparameters
     paths = config.Paths
 
@@ -21,13 +19,13 @@ def evaluate(config):
     model = DisasterTweetBertModel.load_from_checkpoint(paths.model_path)
     model.eval()
 
-    tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
+    tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert-base-uncased")
 
     # Load the dataset
     dataset = DisasterTweetData(data_path=paths.data_path, tokenizer=tokenizer)
 
     # Create DataLoader
-    data_loader = DataLoader(dataset, batch_size=hparams.Batch_Size,shuffle=True)
+    data_loader = DataLoader(dataset, batch_size=hparams.Batch_Size, shuffle=True)
 
     # Evaluate the model
     correct_predictions = 0
@@ -35,9 +33,9 @@ def evaluate(config):
 
     with torch.no_grad():
         for batch in data_loader:
-            input_ids = batch['input_ids']
-            attention_mask = batch['attention_mask']
-            labels = batch['labels']
+            input_ids = batch["input_ids"]
+            attention_mask = batch["attention_mask"]
+            labels = batch["labels"]
 
             logits = model(input_ids, attention_mask)
             preds = torch.argmax(logits, dim=1)
@@ -51,6 +49,7 @@ def evaluate(config):
 
     accuracy = correct_predictions / total_predictions
     print(f"Accuracy: {accuracy:.4f}")
+
 
 if __name__ == "__main__":
     evaluate()

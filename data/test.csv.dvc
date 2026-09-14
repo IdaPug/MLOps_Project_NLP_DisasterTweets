@@ -3,3 +3,7 @@ outs:
   size: 420783
   hash: md5
   path: test.csv
+  cloud:
+    remote_storage:
+      etag: 08a99e8efbced096031001
+      version_id: '1788376858726185'

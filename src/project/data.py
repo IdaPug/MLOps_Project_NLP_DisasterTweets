@@ -7,11 +7,11 @@ from torch.utils.data import Dataset
 class DisasterTweetData(Dataset):
     """A PyTorch Dataset class for loading disaster tweet data."""
 
-    def __init__(self, data_path: Path, tokenizer=None,maxlen=128):
+    def __init__(self, data_path: Path, tokenizer=None, maxlen=128):
         """Args:
-            data_path (Path): Path to the CSV file containing the data.
-            tokenizer: Tokenizer to convert text to token IDs. If None, no tokenization is applied.
-            maxlen (int): Maximum length of the tokenized sequences. Sequences longer than this will be truncated.
+        data_path (Path): Path to the CSV file containing the data.
+        tokenizer: Tokenizer to convert text to token IDs. If None, no tokenization is applied.
+        maxlen (int): Maximum length of the tokenized sequences. Sequences longer than this will be truncated.
         """
         self.data_path = data_path
         self.tokenizer = tokenizer
@@ -31,8 +31,6 @@ class DisasterTweetData(Dataset):
         label = self.data.loc[idx, "target"]
 
         if self.tokenizer:
-
-
             encoding = self.tokenizer.encode_plus(
                 text,
                 add_special_tokens=True,
@@ -48,9 +46,8 @@ class DisasterTweetData(Dataset):
                 "text": text,
                 "input_ids": encoding["input_ids"].flatten(),
                 "attention_mask": encoding["attention_mask"].flatten(),
-                "labels": torch.tensor(label, dtype=torch.long)
+                "labels": torch.tensor(label, dtype=torch.long),
             }
-
 
 
 def preprocess(data_path: Path, output_path: Path, train_frac: float = 0.8):

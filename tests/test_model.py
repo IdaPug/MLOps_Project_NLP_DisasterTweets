@@ -5,17 +5,18 @@ from project.model import DisasterTweetBertModel
 
 
 def test_model_construction():
-
     model = DisasterTweetBertModel()
     assert isinstance(model, pl.LightningModule), "Model should be an instance of pl.LightningModule"
 
     # check components
-    assert hasattr(model, 'bert'), "Model should have a 'bert' attribute"
-    assert hasattr(model, 'classifier'), "Model should have a 'classifier' attribute"
-    assert hasattr(model, 'loss_fn'), "Model should have a 'loss_fn' attribute"
+    assert hasattr(model, "bert"), "Model should have a 'bert' attribute"
+    assert hasattr(model, "classifier"), "Model should have a 'classifier' attribute"
+    assert hasattr(model, "loss_fn"), "Model should have a 'loss_fn' attribute"
 
     # check dimensions of classifier
-    assert model.classifier.in_features == model.bert.config.hidden_size, "Classifier input features should match BERT hidden size"
+    assert (
+        model.classifier.in_features == model.bert.config.hidden_size
+    ), "Classifier input features should match BERT hidden size"
     assert model.classifier.out_features == 2, "Classifier output features should be 2 for binary classification"
 
 
@@ -51,11 +52,7 @@ def test_training_step():
     attention_mask = torch.ones((batch_size, seq_length))  # All tokens are attended to
     labels = torch.randint(0, 2, (batch_size,))  # Random binary labels
 
-    batch = {
-        'input_ids': input_ids,
-        'attention_mask': attention_mask,
-        'labels': labels
-    }
+    batch = {"input_ids": input_ids, "attention_mask": attention_mask, "labels": labels}
 
     # Training step
     loss = model.training_step(batch, batch_idx=0)

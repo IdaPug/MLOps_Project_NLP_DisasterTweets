@@ -1,6 +1,18 @@
 outs:
-- md5: 56b53d0f0dccffd3f3485d710e61503e.dir
-  size: 987744
-  nfiles: 2
-  hash: md5
+- hash: md5
   path: processed_data
+  files:
+  - relpath: train.csv
+    md5: 5df815b516bd568fc7d3fb637e773f3e
+    size: 789917
+    cloud:
+      remote_storage:
+        etag: 08ea9790fbced096031001
+        version_id: '1788376858758122'
+  - relpath: valid.csv
+    md5: 0a3fb5c64eabae5adacd443c1210dad3
+    size: 197827
+    cloud:
+      remote_storage:
+        etag: 08e88e8bfbced096031001
+        version_id: '1788376858675048'

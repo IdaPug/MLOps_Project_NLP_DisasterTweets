@@ -188,3 +188,6 @@ lightning_logs/
 
 # logging
 outputs/
+
+# google cloud key
+*.json

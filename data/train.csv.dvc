@@ -3,3 +3,7 @@ outs:
   size: 987712
   hash: md5
   path: train.csv
+  cloud:
+    remote_storage:
+      etag: 08fff7f6faced096031001
+      version_id: '1788376858344447'

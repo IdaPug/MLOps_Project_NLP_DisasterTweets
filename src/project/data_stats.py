@@ -3,14 +3,18 @@ from data import DisasterTweetData
 
 
 def data_statistics(datadir: str = "data"):
+    out_report = "reports/report.md"
+
     train_data = DisasterTweetData(data_path=f"{datadir}/train.csv")
     val_data = DisasterTweetData(data_path=f"{datadir}/valid.csv")
 
-    print("Train dataset:")
-    print(f"Number of tweets: {len(train_data)}")
-    print("\n")
-    print("Validation dataset:")
-    print(f"Number of tweets: {len(val_data)}")
+    # write the number of samples in the training and validation datasets to a report
+    with open(out_report, "w") as f:
+        f.write("# Data Statistics Report\n\n")
+        f.write("## Training Dataset\n")
+        f.write(f"Number of samples: {len(train_data)}\n\n")
+        f.write("## Validation Dataset\n")
+        f.write(f"Number of samples: {len(val_data)}\n\n")
 
     # plot how much of each class is in the training dataset
     train_labels = train_data.data["target"].tolist()

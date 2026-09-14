@@ -27,14 +27,12 @@ log_project = os.getenv("WANDB_PROJECT")
 log_entity = os.getenv("WANDB_ENTITY")
 
 
-
 @hydra.main(
     version_base="1.3",
     config_path="../../configs",
     config_name="train_config",
 )
 def train(config):
-
     hparams = config.Hyperparameters
     data_config = config.Data
     torch.manual_seed(hparams.seed)
@@ -42,7 +40,7 @@ def train(config):
     np.random.seed(hparams.seed)
 
     # Load the tokenizer
-    tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
+    tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert-base-uncased")
 
     # Load the dataset
     train_dataset = DisasterTweetData(data_path=data_config.train.filepath, tokenizer=tokenizer)
@@ -72,22 +70,24 @@ def train(config):
     )
 
     # log hydra config to wandb
-    wandb_logger.experiment.config.update(
-        OmegaConf.to_container(config,
-                               resolve=True
-                               )
+    wandb_logger.experiment.config.update(OmegaConf.to_container(config, resolve=True))
+
+    trainer = Trainer(
+        max_epochs=hparams.Epoch,
+        limit_train_batches=0.1,
+        callbacks=[checkpoint_callback],
+        logger=wandb_logger,
+        log_every_n_steps=10,
     )
-
-    trainer = Trainer(max_epochs=hparams.Epoch,limit_train_batches=0.1, callbacks=[checkpoint_callback], logger=wandb_logger,log_every_n_steps=10)
-
-
 
     # Train the model
     trainer.fit(model, train_loader, val_loader)
 
     # artifact logging
     best_model_path = checkpoint_callback.best_model_path
-    artifact = wandb.Artifact('disaster_tweet_model', type='model',Description="DistilBERT model trained for disaster tweet classification")
+    artifact = wandb.Artifact(
+        "disaster_tweet_model", type="model", Description="DistilBERT model trained for disaster tweet classification"
+    )
 
     artifact.add_file(best_model_path)
     wandb_logger.experiment.log_artifact(artifact)
