@@ -45,7 +45,7 @@ jobs:
           dvc pull --no-run-cache
 
       - name: Setup CML
-        uses: iterative/setup-cml@v2
+        uses: iterative/setup-cml@v3
 
       - name: Check data statistics & generate report
         run: |
