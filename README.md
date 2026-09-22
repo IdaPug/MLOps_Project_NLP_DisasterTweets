@@ -10,6 +10,10 @@ The project will use the [Natural Language Processing with Disaster Tweets](http
 The model consist of [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) from the transformers library and a simple linear classifier.
 The training is implemented using PyTorch wrapped in PyTorch Lightning to handle checkpoint, logging, device manement etc.
 
+## Deployment Status
+Running using Cloud Run on [page](https://disaster-tweet-frontend-304083113964.europe-north1.run.app)
+![Frontend image](reports/figures/frontend_img.png)
+
 
 
 ## Frameworks & Tools
@@ -25,9 +29,12 @@ The training is implemented using PyTorch wrapped in PyTorch Lightning to handle
 | **GCP Vertex AI**         | Cloud training infrastructure                        |
 | **GCP Cloud Run**         | Serverless deployment for API and frontend                   |
 | **FastAPI**               | Backend API for triggering cloud training jobs               |
-| **Gradio**                | Frontend UI for image upload and inference                   |
 | **Weights & Biases**      | Experiment tracking, metrics logging, and artifact storage   |
 | **Hydra**                 | Configs management for reproducibility   |
+| **Locust**                 |  Framework for load testing  |
+| **ONNX**                 |  Model representation  |
+| **BentoML**                 |  ML deployment framework  |
+| **Streamlit**                 |  Frontend  |
 
 
 
@@ -74,7 +81,6 @@ The directory structure of the project looks like this:
 ├── README.md                 # Project README
 └── tasks.py                  # Project tasks
 ```
-
 
 Created using [mlops_template](https://github.com/SkafteNicki/mlops_template),
 a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for getting

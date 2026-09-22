@@ -182,6 +182,7 @@ CheckList.txt
 # large files
 models/
 wandb/
+artifacts/
 
 # lightning logs
 lightning_logs/
@@ -191,3 +192,4 @@ outputs/
 
 # google cloud key
 *.json
+config_cpu_vertex.yaml

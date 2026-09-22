@@ -11,6 +11,7 @@ COPY LICENSE LICENSE
 RUN uv sync --locked --no-cache --no-install-project
 
 COPY src src/
+COPY configs configs/
 COPY data/processed_data data/processed_data
 
 # Install the project

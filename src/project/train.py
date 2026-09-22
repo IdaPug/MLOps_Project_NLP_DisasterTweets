@@ -74,7 +74,7 @@ def train(config):
 
     trainer = Trainer(
         max_epochs=hparams.Epoch,
-        limit_train_batches=0.1,
+        limit_train_batches=hparams.limit_batches,
         callbacks=[checkpoint_callback],
         logger=wandb_logger,
         log_every_n_steps=10,
@@ -86,7 +86,7 @@ def train(config):
     # artifact logging
     best_model_path = checkpoint_callback.best_model_path
     artifact = wandb.Artifact(
-        "disaster_tweet_model", type="model", Description="DistilBERT model trained for disaster tweet classification"
+        "disaster_tweet_model", type="model", description="DistilBERT model trained for disaster tweet classification"
     )
 
     artifact.add_file(best_model_path)
