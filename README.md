@@ -36,7 +36,8 @@ Running using Cloud Run on [page](https://disaster-tweet-frontend-304083113964.e
 | **BentoML**                 |  ML deployment framework  |
 | **Streamlit**                 |  Frontend  |
 
-
+## MLOps pipeline architectural diagram
+![architectural diagram](reports/figures/architectural_diagram.png)
 
 ## Project structure
 The directory structure of the project looks like this:
